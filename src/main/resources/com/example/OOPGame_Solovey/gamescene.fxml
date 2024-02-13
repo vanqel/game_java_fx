@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="LayerPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.OOPGame_Solovey.Controller">
+        <ImageView id="Background" fx:id="Background" fitHeight="805.0" fitWidth="1355.0" layoutX="-14.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true" scaleX="1.5" style="background-color: white;">
+      <image>
+         <Image url="@../../../images/1612229094_55-p-fioletovii-pikselnii-fon-78.jpg" />
+      </image>
+      <effect>
+         <GaussianBlur radius="0.0">
+            <input>
+               <Glow level="0.4">
+                  <input>
+                     <ColorAdjust brightness="-0.13" contrast="0.09" hue="-0.02" saturation="0.14" />
+                  </input></Glow>
+            </input></GaussianBlur>
+      </effect></ImageView>
+   <Pane fx:id="playerPane" layoutX="214.0" layoutY="308.0" prefHeight="116.0" prefWidth="125.0">
+      <children>
+          <ImageView fx:id="Hero" accessibleText="1" fitHeight="139.0" fitWidth="200.0" layoutX="-14.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+              <Image url="@../../../images/Hero1/1.png" />
+            <effect>
+               <Bloom threshold="0.31" />
+            </effect>
+          </ImageView>
+      </children>
+   </Pane>
+   <Pane fx:id="enemyPane" layoutX="829.0" layoutY="321.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" prefHeight="90.0" prefWidth="90.0" rotate="180.0" translateX="10.0">
+      <children>
+         <ImageView fx:id="enemy" fitHeight="139.0" fitWidth="125.0" layoutX="-18.0" layoutY="-17.0" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/Hero1/2.png" />
+            </image>
+            <viewport>
+               <Rectangle2D />
+            </viewport>
+            <effect>
+               <ColorAdjust contrast="0.09" hue="0.52" saturation="0.16">
+                  <input>
+                     <Bloom />
+                  </input>
+               </ColorAdjust>
+            </effect>
+         </ImageView>
+      </children></Pane>
+   <Rectangle fx:id="stats_rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="9.0" layoutX="339.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="500.0">
+      <effect>
+         <Glow level="1.0" />
+      </effect>
+   </Rectangle>
+   <VBox fx:id="stats" alignment="CENTER" layoutX="539.0" layoutY="17.0" prefHeight="90.0" prefWidth="100.0">
+      <children>
+         <Ellipse fill="#ff2b1f" radiusX="17.0" radiusY="17.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0">
+            <effect>
+               <Bloom threshold="0.26" />
+            </effect>
+         </Ellipse>
+         <Label fx:id="stats_text" contentDisplay="CENTER" style="-fx-alignment: center;" text="0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <font>
+               <Font name="Acrom ExtraBold" size="25.0" />
+            </font>
+         </Label>
+      </children>
+   </VBox>
+   <Pane fx:id="BlackScreen" prefHeight="200.0" prefWidth="200.0">
+      <children>
+         <Rectangle arcHeight="5.0" arcWidth="5.0" height="741.0" opacity="0.44" stroke="BLACK" strokeType="INSIDE" width="1317.0" />
+         <Label fx:id="textBlackScreen" alignment="CENTER" contentDisplay="CENTER" prefHeight="741.0" prefWidth="1165.0" text="Pause" textFill="WHITE">
+            <font>
+               <Font name="BebasNeuePro-ExpandedExtraBold" size="58.0" />
+            </font>
+         </Label>
+      </children>
+   </Pane>
+</Pane>

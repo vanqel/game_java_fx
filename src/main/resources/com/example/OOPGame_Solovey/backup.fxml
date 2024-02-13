@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane fx:id="LayerPane" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.game_kurs.Controller1">
+    <ImageView id="Background" fx:id="Background" fitHeight="720" fitWidth="1280.0" layoutX="-11.0" onMouseClicked="#click" pickOnBounds="true" preserveRatio="true" style="background-color: white;">
+        <image>
+            <Image url="@../../../gif/background.gif" />
+        </image></ImageView>
+    <Pane fx:id="playerPane" layoutX="59.0" layoutY="121.0" prefHeight="116.0" prefWidth="125.0">
+        <children>
+            <ImageView fx:id="Hero" accessibleText="1" fitHeight="139.0" fitWidth="200.0" layoutX="-14.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../../images/Hero1/1.png" />
+            </ImageView>
+        </children>
+    </Pane>
+    <Pane fx:id="enemyPane" layoutX="880.0" layoutY="185.0" maxHeight="90.0" maxWidth="90.0" minHeight="90.0" minWidth="90.0" rotate="-163.7" translateX="10.0">
+      <children>
+            <ImageView fitHeight="139.0" fitWidth="139.0" preserveRatio="true">
+                <image>
+                    <Image url="@../../../images/Hero1/2.png" />
+                </image>
+                <viewport>
+                    <Rectangle2D />
+                </viewport>
+            </ImageView>
+         <Rectangle accessibleRole="PARENT" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      </children></Pane>
+
+</Pane>
