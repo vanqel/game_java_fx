@@ -7,19 +7,60 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
 import java.io.File;
-
+/**
+ * Абстрактный класс представляет игрока.
+ * Он содержит абстрактные методы для стрельбы, проверки столкновения и навигации.
+ */
 public abstract class Player {
+
+    /**
+     * Pane представляет панель игрока.
+     */
     @FXML
     protected Pane playerpane;
+
+    /**
+     * Pane представляет слой игры.
+     */
     @FXML
     protected Pane LayerPane;
+
+    /**
+     * Переменная представляет анимацию игрока.
+     */
     private double anim_hero = 0;
+
+    /**
+     * ParallelTransition представляет параллельную анимацию.
+     */
     protected ParallelTransition parallelTransition;
+
+    /**
+     * Строка представляет тип игрока.
+     */
     String typeplayer;
+
+    /**
+     * Двойное число представляет множитель для игрока.
+     */
     double muliply;
+
+    /**
+     * ImageView представляет изображение игрока.
+     */
     @FXML
     protected ImageView playerImage;
-    public Player(Pane playerpane,Pane LayerPane, ParallelTransition parallelTransition, String typeplayer, double muliply){
+
+    /**
+     * Конструктор инициализирует игрока.
+     *
+     * @param playerpane Pane - панель игрока
+     * @param LayerPane Pane - слой игры
+     * @param parallelTransition ParallelTransition - параллельная анимация
+     * @param typeplayer String - тип игрока
+     * @param muliply double - множитель для игрока
+     */
+    public Player(Pane playerpane, Pane LayerPane, ParallelTransition parallelTransition, String typeplayer, double muliply) {
         this.playerpane = playerpane;
         this.LayerPane = LayerPane;
         this.parallelTransition = parallelTransition;
@@ -27,7 +68,13 @@ public abstract class Player {
         this.muliply = muliply;
     }
 
-    public void setAnim_lvl(ImageView playerImage,int lvl_hero){
+    /**
+     * Метод устанавливает анимацию игрока.
+     *
+     * @param playerImage ImageView - изображение игрока
+     * @param lvl_hero int - уровень игрока
+     */
+    public void setAnim_lvl(ImageView playerImage, int lvl_hero) {
         anim_hero += 0.1;
         if (anim_hero == 0.5){
             playerImage.setImage(new Image(String.valueOf(new File("C:\\Универ\\Game_Kurs\\Game_kurs\\src\\main\\resources\\images\\Hero"+ lvl_hero +"\\1.png"))));
@@ -41,12 +88,35 @@ public abstract class Player {
         }
     }
 
+    /**
+     * Абстрактный метод стреляет игроком.
+     *
+     * @param lvl int - уровень игры
+     * @param fire boolean - состояние стрельбы
+     */
     public abstract void shoot(int lvl, boolean fire);
+
+    /**
+     * Абстрактный метод проверяет столкновение игрока с врагами.
+     *
+     * @param enemyPane Pane - панель с врагами
+     * @return double - результат проверки столкновения
+     */
     public abstract double checkCollision(Pane enemyPane);
+
+    /**
+     * Абстрактный метод выполняет навигацию игрока.
+     */
     public abstract void navigation();
+    /**
+     * Метод выполняет установку местоположения.
+     */
     public void setNav(boolean left,boolean right,boolean up,boolean down) {}
-    public void checkWall() {
-    }
+
+    /**
+     * Метод проверяющий столкновение со стеной
+     */
+    public void checkWall() {}
 }
 
 

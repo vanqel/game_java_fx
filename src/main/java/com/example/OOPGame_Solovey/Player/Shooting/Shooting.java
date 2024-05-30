@@ -19,9 +19,9 @@ public abstract class Shooting {
     protected ParallelTransition parallelTransition;
     protected double multiply;
     protected String typeplayer;
-    protected String shootlvl3 = "C:\\Универ\\Game_Kurs\\Game_kurs\\src\\main\\resources\\images\\shoot_lvl_3.png";
-    protected String shootlvl2 = "C:\\Универ\\Game_Kurs\\Game_kurs\\src\\main\\resources\\images\\shoot_lvl_2.png";
-    protected String shootlvl1 = "C:\\Универ\\Game_Kurs\\Game_kurs\\src\\main\\resources\\images\\shoot_lvl_1.png";
+    protected String shootlvl3 = "/home/ivan/personal/game_java_fx/src/main/resources/images/shoot_lvl_3.png";
+    protected String shootlvl2 = "/home/ivan/personal/game_java_fx/src/main/resources/images/shoot_lvl_2.png";
+    protected String shootlvl1 = "/home/ivan/personal/game_java_fx/src/main/resources/images/shoot_lvl_1.png";
 
     public Shooting(Pane playerPane,ParallelTransition parallelTransition,double multiply, String typeplayer, int orient, double hue){
         this.PlayerPane = playerPane;

@@ -7,31 +7,87 @@ import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
-
+/**
+ * Класс представляет врага.
+ * Он наследует класс Player и содержит методы для стрельбы и навигации.
+ */
 public class Enemy extends Player {
+
+    /**
+     * Конструктор инициализирует врага.
+     *
+     * @param playerImage ImageView - изображение врага
+     * @param playerpane Pane - панель врага
+     * @param LayerPane Pane - слой игры
+     * @param parallelTransition ParallelTransition - параллельная анимация
+     * @param typeplayer String - тип врага
+     * @param muliply double - множитель для врага
+     */
     public Enemy(ImageView playerImage, Pane playerpane, Pane LayerPane, ParallelTransition parallelTransition, String typeplayer, double muliply) {
         super(playerpane, LayerPane, parallelTransition, typeplayer, muliply);
     }
+
+    /**
+     * Переменная представляет цель врага.
+     */
     private Pane target;
+
+    /**
+     * Переменная представляет таймер стрельбы.
+     */
     private int timer = 250;
+
+    /**
+     * Переменная представляет таймер стрельбы.
+     */
     private int timerShoot = 250;
-    protected ShootEnemy ShootEnemyController = new ShootEnemy(playerpane,LayerPane,parallelTransition,muliply,"Enemy Shoot",-1,0.5);
+
+    /**
+     * Переменная представляет контроллер стрельбы врага.
+     */
+    protected ShootEnemy ShootEnemyController = new ShootEnemy(playerpane, LayerPane, parallelTransition, muliply, "Enemy Shoot", -1, 0.5);
+
+    /**
+     * Метод устанавливает цель для врага.
+     *
+     * @param target Pane - панель цели
+     */
     public void setTarget(Pane target) {
         this.target = target;
     }
+
+    /**
+     * Метод выполняет стрельбу.
+     *
+     * @param lvl int - уровень игры
+     * @param fire boolean - состояние стрельбы
+     */
     @Override
-    public void shoot(int lvl, boolean fire){
-            int randomShootTime = (int)(Math.random()*5);
-            this.timerShoot += randomShootTime;
-            if (timerShoot >= 50) {
-                ShootEnemyController.getShoot(playerpane,lvl,fire);
-                if (timerShoot >= 100){timerShoot = 0;}
+    public void shoot(int lvl, boolean fire) {
+        int randomShootTime = (int) (Math.random() * 5);
+        this.timerShoot += randomShootTime;
+        if (timerShoot >= 50) {
+            ShootEnemyController.getShoot(playerpane, lvl, fire);
+            if (timerShoot >= 100) {
+                timerShoot = 0;
             }
+        }
     }
+
+    /**
+     * Метод проверяет столкновение с другими врагами.
+     *
+     * @param enemyPane Pane - панель с другими врагами
+     * @return double - результат проверки столкновения
+     */
     @Override
     public double checkCollision(Pane enemyPane) {
         return ShootEnemyController.checkCollision(enemyPane);
     }
+
+    /**
+     * Метод выполняет навигацию.
+     */
     @Override
     public void navigation() {
         timer++;
@@ -52,6 +108,10 @@ public class Enemy extends Player {
             }
         }
     }
+
+    /**
+     * Проверяет столкновение со стеной
+     */
     @Override
     public void checkWall(){
         ShootEnemyController.checkWall();

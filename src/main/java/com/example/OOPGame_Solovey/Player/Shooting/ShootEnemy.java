@@ -1,12 +1,24 @@
 package com.example.OOPGame_Solovey.Player.Shooting;
 
-import com.example.OOPGame_Solovey.Statistic;
 import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-
+/**
+ * Класс, отвечающий за стрельбу врага.
+ */
 public class ShootEnemy extends Shooting{
+    /**
+     * Конструктор класса ShootEnemy.
+     *
+     * @param playerPane Панель игрока
+     * @param LayerPane Панель слоев
+     * @param parallelTransition Параллельный переход
+     * @param multiply Коэффициент усиления
+     * @param typeplayer Тип игрока
+     * @param orient Ориентация
+     * @param hue Цвет
+     */
     public ShootEnemy(Pane playerPane, Pane LayerPane,ParallelTransition parallelTransition, double multiply, String typeplayer, int orient, double hue) {
         super(playerPane, parallelTransition, multiply, typeplayer, orient, hue);
         LayerPane.getChildren().add(ShootingPaneEnemy);
@@ -14,10 +26,14 @@ public class ShootEnemy extends Shooting{
     private double shooting_time = 2;
     private final int lvl = 1;
     private final Pane ShootingPaneEnemy = new Pane();
-    public Pane getShootPane() {
-        return ShootingPaneEnemy;
-    }
 
+    /**
+     * Метод, отвечающий за стрельбу врага.
+     *
+     * @param PlayerPane Панель игрока
+     * @param lvl Уровень стрельбы
+     * @param fire Флаг, указывающий, нужно ли стрелять
+     */
     public void getShoot(Pane PlayerPane, int lvl, boolean fire) {
 
         double x = PlayerPane.getLayoutX() + PlayerPane.getTranslateX() + 150 * orient;
@@ -66,7 +82,9 @@ public class ShootEnemy extends Shooting{
         }
 
     }
-
+    /**
+     * Метод, проверяющий наличие препятствий на пути стрелы.
+     */
     public void checkWall(){
         if (ShootingPaneEnemy.getChildren() == null){return;}
         for (int count = 0; count < ShootingPaneEnemy.getChildren().toArray().length; count++){
@@ -77,7 +95,12 @@ public class ShootEnemy extends Shooting{
         }
 
     }
-
+    /**
+     * Метод, проверяющий столкновение стрелы с врагом.
+     *
+     * @param enemy Панель врага
+     * @return Урон, нанесенный врагу
+     */
     public double checkCollision(Pane enemy) {
         double damage = 0;
         if (ShootingPaneEnemy.getChildren() == null){return 0;}

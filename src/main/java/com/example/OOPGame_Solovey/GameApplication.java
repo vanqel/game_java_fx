@@ -8,9 +8,21 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
+/**
+ * Класс представляет приложение игры.
+ * Он загружает сцену игры из файла FXML, устанавливает обработчики событий нажатия и отпускания клавиш,
+ * а также запускает приложение.
+ */
 public class GameApplication extends Application {
 
+    /**
+     * Метод вызывается при запуске приложения.
+     * Он загружает сцену игры из файла FXML, устанавливает обработчики событий нажатия и отпускания клавиш,
+     * а также показывает окно приложения.
+     *
+     * @param stage Stage - объект окна приложения
+     * @throws IOException если файл сцены игры не может быть загружен
+     */
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(GameApplication.class.getResource("gamescene.fxml"));
@@ -72,9 +84,12 @@ public class GameApplication extends Application {
         stage.show();
     }
 
-
+    /**
+     * Метод запускает приложение.
+     *
+     * @param args массив строк с параметрами командной строки
+     */
     public static void main(String[] args) {
         launch();
-
     }
 }
